@@ -1,12 +1,11 @@
 :root {
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #1f2937;
   background:
-    radial-gradient(circle at top left, rgba(255, 210, 166, 0.7), transparent 34%),
-    linear-gradient(180deg, #fff8ef 0%, #f4f7fb 52%, #ecf1f6 100%);
+    radial-gradient(circle at top, rgba(13, 110, 253, 0.12), transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, #eef2f7 100%);
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light;
 }
 
 * {
@@ -21,16 +20,10 @@ body,
 
 body {
   margin: 0;
-  min-height: 100vh;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-}
-
-button,
-input,
-select {
-  font: inherit;
+code {
+  background-color: #e9ecef;
+  border-radius: 0.25rem;
+  padding: 0.05rem 0.3rem;
 }

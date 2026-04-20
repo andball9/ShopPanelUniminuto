@@ -1,0 +1,84 @@
+openapi: 3.0.3
+info:
+  title: API de Gestion de Usuarios
+  version: 1.0.0
+  description: API REST simulada con JSON Server para listar, crear y eliminar usuarios.
+servers:
+  - url: http://localhost:3001
+    description: Servidor local JSON Server
+paths:
+  /users:
+    get:
+      summary: Listar usuarios
+      description: Retorna todos los usuarios registrados.
+      responses:
+        "200":
+          description: Lista de usuarios obtenida correctamente.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
+    post:
+      summary: Crear usuario
+      description: Registra un nuevo usuario en la API simulada.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NewUser"
+      responses:
+        "201":
+          description: Usuario creado correctamente.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+  /users/{id}:
+    delete:
+      summary: Eliminar usuario
+      description: Elimina un usuario por su identificador.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Usuario eliminado correctamente.
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "1"
+        name:
+          type: string
+          example: Laura Gomez
+        email:
+          type: string
+          example: laura.gomez@correo.com
+        role:
+          type: string
+          example: Administradora
+    NewUser:
+      type: object
+      required:
+        - name
+        - email
+        - role
+      properties:
+        name:
+          type: string
+          example: Miguel Torres
+        email:
+          type: string
+          example: miguel.torres@correo.com
+        role:
+          type: string
+          example: Desarrollador Front-end
